@@ -4,7 +4,7 @@
 		<mkdir dir="bin" />
 		<javac includeantruntime="false" srcdir="src" destdir="bin" classpath="lib/junit4-4.11.jar" />
 		
-		<junit printsummary="on" showoutput="true" fork="true">
+		<junit printsummary="on" showoutput="true" haltonfailure="yes" fork="true">
 			<classpath>
 				<pathelement location="bin" />
 				<pathelement location="lib/junit4-4.11.jar" />
