@@ -22,7 +22,32 @@ public final class Matrix
 	 */
 	public Matrix (int m, int n)
 	{
-		data = new double[m][n];
+		data = null;
+	}
+	
+	/**
+	 * Creates a square matrix filled with zeros
+	 * 
+	 * @pre n > 0
+	 * @post A new instance of this is created, representing a square matrix
+	 *       of order "n", whose elements are set to zero
+	 */
+	public Matrix (int n)
+	{
+		data = null;
+	}
+	
+	/**
+	 * Creates a matrix with specified elements 
+	 * 
+	 * @pre data != null
+	 *      data.length > 0
+	 *      data is a rectangular array, this is:
+	 *        data[i].length == data[0].length for each i in 0..data.length - 1
+	 */
+	public Matrix (double[][] data)
+	{
+		this.data = null;
 	}
 	
 	/**
@@ -74,6 +99,17 @@ public final class Matrix
 	}
 	
 	/**
+	 * Gets the transpose matrix
+	 * 
+	 * @pre -
+	 * @post The returned value contains the transpose of this matrix
+	 */
+	public Matrix transpose()
+	{
+		return null;
+	}
+	
+	/**
 	 * Gets a string representation of the matrix
 	 * 
 	 * @pre -
@@ -87,5 +123,19 @@ public final class Matrix
 	public String toString()
 	{
 		return null;
+	}
+	
+	/**
+	 * Tests two matrices for equality
+	 * 
+	 * @pre -
+	 * @post The returned value contains true if "o" is an instance of Matrix
+	 *       who has the same number of rows and columns as this matrix
+	 *       and whose corresponding elements are equals
+	 */
+	@Override
+	public boolean equals (Object o)
+	{
+		return false;
 	}
 }
