@@ -2,6 +2,8 @@
 
 package be.ukonline.mathlib;
 
+import java.util.Arrays;
+
 /**
  * Matrix of real numbers
  * 
@@ -22,7 +24,7 @@ public final class Matrix
 	 */
 	public Matrix (int m, int n)
 	{
-		data = null;
+		data = new double[m][n];
 	}
 	
 	/**
@@ -34,7 +36,7 @@ public final class Matrix
 	 */
 	public Matrix (int n)
 	{
-		data = null;
+		data = new double[n][n];
 	}
 	
 	/**
@@ -47,7 +49,7 @@ public final class Matrix
 	 */
 	public Matrix (double[][] data)
 	{
-		this.data = null;
+		this.data = data;
 	}
 	
 	/**
@@ -58,7 +60,7 @@ public final class Matrix
 	 */
 	public int nbRows()
 	{
-		return 0;
+		return data.length;
 	}
 	
 	/**
@@ -69,7 +71,7 @@ public final class Matrix
 	 */
 	public int nbColumns()
 	{
-		return 0;
+		return data[0].length;
 	}
 	
 	/**
@@ -82,7 +84,7 @@ public final class Matrix
 	 */
 	public double get (int i, int j)
 	{
-		return 0;
+		return data[i][j];
 	}
 	
 	/**
@@ -95,7 +97,7 @@ public final class Matrix
 	 */
 	public boolean isSquareMatrix()
 	{
-		return false;
+		return data.length == data[0].length;
 	}
 	
 	/**
@@ -106,7 +108,13 @@ public final class Matrix
 	 */
 	public Matrix transpose()
 	{
-		return null;
+		Matrix transpose = new Matrix (nbColumns(),nbRows());
+		for (int i=0; i<nbColumns(); i++){
+			for (int j=0; j<nbRows(); j++){
+				transpose.data[i][j] = data[j][i];
+			}
+		}
+		return transpose;
 	}
 	
 	/**
@@ -122,7 +130,14 @@ public final class Matrix
 	@Override
 	public String toString()
 	{
-		return null;
+		String toreturn="";
+		for (int i=0; i<data.length; i++){
+			toreturn += Arrays.toString(data[i]); 
+			if (i+1 != data.length){
+				toreturn += "\n";
+			}
+		}
+		return toreturn;
 	}
 	
 	/**
@@ -136,6 +151,6 @@ public final class Matrix
 	@Override
 	public boolean equals (Object o)
 	{
-		return false;
+		return o instanceof Matrix ;
 	}
 }
