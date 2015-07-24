@@ -6,6 +6,7 @@ package be.ukonline.mathlib;
  * Sinus function
  * 
  * @author Sébastien Combéfis
+ * @author Alexandre Rucquoy
  * @version July 24, 2015
  */
 public class Sinus extends Function

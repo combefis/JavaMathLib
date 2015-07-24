@@ -7,7 +7,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import be.ukonline.mathlib.Matrix;
 import be.ukonline.mathlib.Sinus;
 
 /**

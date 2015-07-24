@@ -8,7 +8,8 @@ import java.util.Arrays;
  * Matrix of real numbers
  * 
  * @author Sébastien Combéfis
- * @version June 21, 2015
+ * @author Alexandre Rucquoy
+ * @version July 24, 2015
  */
 public final class Matrix
 {
@@ -84,7 +85,7 @@ public final class Matrix
 	 */
 	public double get (int i, int j)
 	{
-		return data[i][j];
+		return data[i - 1][j - 1];
 	}
 	
 	/**
@@ -109,8 +110,10 @@ public final class Matrix
 	public Matrix transpose()
 	{
 		Matrix transpose = new Matrix (nbColumns(),nbRows());
-		for (int i=0; i<nbColumns(); i++){
-			for (int j=0; j<nbRows(); j++){
+		for (int i = 0; i < nbColumns(); i++)
+		{
+			for (int j = 0; j < nbRows(); j++)
+			{
 				transpose.data[i][j] = data[j][i];
 			}
 		}
@@ -130,10 +133,12 @@ public final class Matrix
 	@Override
 	public String toString()
 	{
-		String toreturn="";
-		for (int i=0; i<data.length; i++){
-			toreturn += Arrays.toString(data[i]); 
-			if (i+1 != data.length){
+		String toreturn = "";
+		for (int i = 0; i < data.length; i++)
+		{
+			toreturn += Arrays.toString (data[i]); 
+			if (i + 1 != data.length)
+			{
 				toreturn += "\n";
 			}
 		}
@@ -151,6 +156,6 @@ public final class Matrix
 	@Override
 	public boolean equals (Object o)
 	{
-		return o instanceof Matrix ;
+		return o instanceof Matrix;
 	}
 }

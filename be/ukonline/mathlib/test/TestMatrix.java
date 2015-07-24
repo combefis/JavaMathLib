@@ -90,7 +90,7 @@ public final class TestMatrix
 		{
 			for (int j = 1; j <= matrixC.nbColumns(); j++)
 			{
-				assertEquals (data[i][j], matrixC.get (i, j), 0);
+				assertEquals (data[i - 1][j - 1], matrixC.get (i, j), 0);
 			}
 		}
 		
