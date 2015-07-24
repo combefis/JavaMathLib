@@ -12,6 +12,7 @@
 			</classpath>
 			<formatter type="plain" usefile="false" />
 			<test name="be.ukonline.mathlib.test.TestMatrix" />
+			<test name="be.ukonline.mathlib.test.TestSinus" />
 		</junit>
 	</target>
 </project>
