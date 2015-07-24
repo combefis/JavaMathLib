@@ -13,6 +13,6 @@ public class Sinus extends Function
 	@Override
 	public double getValue (double x)
 	{
-		return 0;
+		return Math.sin(x);
 	}
 }
