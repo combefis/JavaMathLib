@@ -15,7 +15,7 @@ import be.ukonline.mathlib.Matrix;
  * Test class of the Matrix class
  * 
  * @author Sébastien Combéfis
- * @version July 13, 2015
+ * @version July 26, 2015
  */
 public final class TestMatrix
 {
@@ -203,6 +203,7 @@ public final class TestMatrix
 	public void testEquals()
 	{
 		double[][] expected;
+		double[][] notexpected;
 		
 		// All the matrices must not be equal to null
 		// nor to an object that is not an instance of Matrix
@@ -219,6 +220,7 @@ public final class TestMatrix
 		assertFalse (matrixD.equals (new Object()));
 		
 		// Testing equalities for matrices
+		// Must return true when comparing two equal matrices
 		expected = new double[][] {
 			{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
 			{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
@@ -246,5 +248,21 @@ public final class TestMatrix
 			{0.0, 0.0, 0.0, 0.0, 0.0, 0.0}
 		};
 		assertEquals (new Matrix (expected), matrixD);
+		
+		// Testing equalities that must fail
+		// Must return false when comparing two different matrices
+		// Dimensions must be the same
+		notexpected = new double[][] {
+			{1, 0},
+			{0, 1}
+		};
+		assertNotEquals (new Matrix (notexpected), matrixC);
+		
+		// Values must be the same
+		notexpected = new double[][] {
+			{1, 2, 3},
+			{4, 5, 7}
+		};
+		assertNotEquals (new Matrix (notexpected), matrixC);
 	}
 }
