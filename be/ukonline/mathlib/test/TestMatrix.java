@@ -226,7 +226,7 @@ public final class TestMatrix
 			{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
 			{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0}
 		};
-		assertEquals (new Matrix (expected), matrixA);
+		assertTrue (matrixA.equals (new Matrix (expected)));
 		
 		expected = new double[][] {
 			{0.0, 0.0},
@@ -235,9 +235,9 @@ public final class TestMatrix
 			{0.0, 0.0},
 			{0.0, 0.0}
 		};
-		assertEquals (new Matrix (expected), matrixB);
+		assertTrue (matrixB.equals (new Matrix (expected)));
 		
-		assertEquals (new Matrix (this.data), matrixC);
+		assertTrue (matrixC.equals (new Matrix (this.data)));
 		
 		expected = new double[][] {
 			{0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
@@ -247,7 +247,7 @@ public final class TestMatrix
 			{0.0, 0.0, 0.0, 0.0, 0.0, 0.0},
 			{0.0, 0.0, 0.0, 0.0, 0.0, 0.0}
 		};
-		assertEquals (new Matrix (expected), matrixD);
+		assertTrue (matrixD.equals (new Matrix (expected)));
 		
 		// Testing equalities that must fail
 		// Must return false when comparing two different matrices
@@ -256,13 +256,13 @@ public final class TestMatrix
 			{1, 0},
 			{0, 1}
 		};
-		assertNotEquals (new Matrix (notexpected), matrixC);
+		assertFalse (matrixC.equals (new Matrix (notexpected)));
 		
 		// Values must be the same
 		notexpected = new double[][] {
 			{1, 2, 3},
 			{4, 5, 7}
 		};
-		assertNotEquals (new Matrix (notexpected), matrixC);
+		assertFalse (matrixC.equals (new Matrix (notexpected)));
 	}
 }
