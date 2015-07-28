@@ -3,7 +3,7 @@
 package be.ukonline.mathlib;
 
 /**
- * Sine function a sin (bx + c)
+ * Sine function a * sin (bx + c)
  * 
  * @author Sébastien Combéfis
  * @author Alexandre Rucquoy
@@ -32,6 +32,12 @@ public final class Sine extends Function
 	public double getValue (double x)
 	{
 		return Math.sin (x);
+	}
+	
+	@Override
+	public Function derive()
+	{
+		return null;
 	}
 	
 	/**

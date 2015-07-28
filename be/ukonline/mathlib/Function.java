@@ -18,4 +18,12 @@ public abstract class Function
 	 *       for the specified "x" value
 	 */
 	public abstract double getValue (double x);
+	
+	/**
+	 * Derives the function
+	 * 
+	 * @pre -
+	 * @post The returned value contains the derivative function of this function
+	 */
+	public abstract Function derive();
 }

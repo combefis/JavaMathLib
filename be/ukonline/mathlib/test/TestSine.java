@@ -28,40 +28,36 @@ public final class TestSine
 	{
 		// sin(x)
 		sineA = new Sine (1, 1, 0);
-		System.out.println (sineA);
 		
 		// sin(-2x)
 		sineB = new Sine (1, -2, 0);
-		System.out.println (sineB);
 		
-		// -2.5 sin(3x + 5)
+		// -2.5 * sin(3x + 5)
 		sineC = new Sine (-2.5, 3, 5);
-		System.out.println (sineC);
 		
-		// 5 sin(-2x - 4)
+		// 5 * sin(-2x - 4)
 		sineD = new Sine (5, -2, -4);
-		System.out.println (sineD);
 	}
 
 	@Test
 	public void testGetValue()
 	{
 		// sin(0) should be 0
-		assertEquals (Math.sin(0), sineA.getValue(0), 0);
+		assertEquals (Math.sin (0), sineA.getValue (0), 0);
 		
 		// sin(pi/2) should be 1
 		assertEquals (Math.sin (Math.PI / 2), sineA.getValue (Math.PI /2), 0);
 		
-		// -2.5 sin(3 * 0 + 5) should be
+		// -2.5 * sin(3 * 0 + 5) should be
 		assertEquals (-2.5 * Math.sin (5), sineC.getValue (0), 0);
 		
-		// -2.5 sin(3 * -1 + 5) should be
+		// -2.5 * sin(3 * -1 + 5) should be
 		assertEquals (-2.5 * Math.sin (2), sineC.getValue (-1), 0);
 		
-		// 5 sin(-2 * 0 - 4) should be
+		// 5 * sin(-2 * 0 - 4) should be
 		assertEquals (5 * Math.sin (-4), sineD.getValue (0), 0);
 		
-		// 5 sin(-2 * 2 - 4) should be
+		// 5 * sin(-2 * 2 - 4) should be
 		assertEquals (5 * Math.sin (-8), sineD.getValue (2), 0);
 	}
 	
