@@ -6,7 +6,8 @@ package be.ukonline.mathlib;
  * Cosine function a * cos (bx + c)
  * 
  * @author Sébastien Combéfis
- * @version July 28, 2015
+ * @author Alexandre Rucquoy
+ * @version July 7, 2016
  */
 public final class Cosine extends Function
 {
@@ -30,7 +31,7 @@ public final class Cosine extends Function
 	@Override
 	public double getValue (double x)
 	{
-		return this.a*Math.cos(this.b*x+this.c);
+		return this.a * Math.cos (this.b * x + this.c);
 	}
 	
 	@Override
@@ -53,18 +54,21 @@ public final class Cosine extends Function
 	@Override
 	public String toString()
 	{
-		String retVal="";
-		if(this.a != 1){
-			retVal += Double.toString(this.a)+" ";
+		String retVal = "";
+		if (this.a != 1)
+		{
+			retVal += Double.toString (this.a) + " ";
 		}
 		retVal += "cos (";
-		if(this.b != 1){
-			retVal += Double.toString(this.b);
+		if (this.b != 1)
+		{
+			retVal += Double.toString (this.b);
 		}
 		retVal += "x";
-		if(this.c != 0){
-			retVal += (this.c > 0 && this.c != 0 ? " +" : " -")+" ";
-			retVal += Double.toString(Math.abs(this.c));
+		if (this.c != 0)
+		{
+			retVal += (this.c > 0 && this.c != 0 ? " +" : " -") + " ";
+			retVal += Double.toString (Math.abs (this.c));
 		}
 		retVal += ")";
 		return retVal;
@@ -82,11 +86,13 @@ public final class Cosine extends Function
 	@Override
 	public boolean equals (Object o)
 	{
-		if (!(o instanceof Cosine)){
+		if (! (o instanceof Cosine))
+		{
 			return false;
 		}
 		Cosine test = (Cosine) o;
-		if(test.a != this.a || test.b != this.b || test.c != this.c){
+		if (test.a != this.a || test.b != this.b || test.c != this.c)
+		{
 			return false;
 		}
 		return true;
