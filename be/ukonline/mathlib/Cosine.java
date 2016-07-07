@@ -22,15 +22,15 @@ public final class Cosine extends Function
 	 */
 	public Cosine (double a, double b, double c)
 	{
-		this.a = 0;
-		this.b = 0;
-		this.c = 0;
+		this.a = a;
+		this.b = b;
+		this.c = c;
 	}
 	
 	@Override
 	public double getValue (double x)
 	{
-		return 0;
+		return this.a*Math.cos(this.b*x+this.c);
 	}
 	
 	@Override
@@ -53,8 +53,23 @@ public final class Cosine extends Function
 	@Override
 	public String toString()
 	{
-		return null;
+		String retVal="";
+		if(this.a != 1){
+			retVal += Double.toString(this.a)+" ";
+		}
+		retVal += "cos (";
+		if(this.b != 1){
+			retVal += Double.toString(this.b);
+		}
+		retVal += "x";
+		if(this.c != 0){
+			retVal += (this.c > 0 && this.c != 0 ? " +" : " -")+" ";
+			retVal += Double.toString(Math.abs(this.c));
+		}
+		retVal += ")";
+		return retVal;
 	}
+
 	
 	/**
 	 * Tests two cosine functions for equality
@@ -67,6 +82,13 @@ public final class Cosine extends Function
 	@Override
 	public boolean equals (Object o)
 	{
-		return false;
+		if (!(o instanceof Cosine)){
+			return false;
+		}
+		Cosine test = (Cosine) o;
+		if(test.a != this.a || test.b != this.b || test.c != this.c){
+			return false;
+		}
+		return true;
 	}
 }
