@@ -31,7 +31,7 @@ public final class Cosine extends Function
 	@Override
 	public double getValue (double x)
 	{
-		return this.a * Math.cos (this.b * x + this.c);
+		return a * Math.cos (b * x + c);
 	}
 	
 	@Override
@@ -57,18 +57,18 @@ public final class Cosine extends Function
 		String retVal = "";
 		if (this.a != 1)
 		{
-			retVal += Double.toString (this.a) + " ";
+			retVal += Double.toString (a) + " ";
 		}
 		retVal += "cos (";
 		if (this.b != 1)
 		{
-			retVal += Double.toString (this.b);
+			retVal += Double.toString (b);
 		}
 		retVal += "x";
 		if (this.c != 0)
 		{
-			retVal += (this.c > 0 && this.c != 0 ? " +" : " -") + " ";
-			retVal += Double.toString (Math.abs (this.c));
+			retVal += (c > 0 && c != 0 ? " +" : " -") + " ";
+			retVal += Double.toString (Math.abs (c));
 		}
 		retVal += ")";
 		return retVal;
@@ -91,7 +91,7 @@ public final class Cosine extends Function
 			return false;
 		}
 		Cosine test = (Cosine) o;
-		if (test.a != this.a || test.b != this.b || test.c != this.c)
+		if (test.a != a || test.b != b || test.c != c)
 		{
 			return false;
 		}
