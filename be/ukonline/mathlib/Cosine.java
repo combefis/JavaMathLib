@@ -22,15 +22,15 @@ public final class Cosine extends Function
 	 */
 	public Cosine (double a, double b, double c)
 	{
-		this.a = 0;
-		this.b = 0;
-		this.c = 0;
+		this.a = a;
+		this.b = b;
+		this.c = c;
 	}
 	
 	@Override
 	public double getValue (double x)
 	{
-		return 0;
+		return this.a*Math.cos(this.b*x+this.c);
 	}
 	
 	@Override
@@ -53,7 +53,41 @@ public final class Cosine extends Function
 	@Override
 	public String toString()
 	{
-		return null;
+		if(this.a != 1){
+			if(this.c != 0 && this.b != 1){
+				if(this.c > 0){
+					return (Double.toString(this.a)+" cos ("+Double.toString(this.b)+"x + "+Double.toString(this.c)+")");
+				}else{
+					return (Double.toString(this.a)+" cos ("+Double.toString(this.b)+"x - "+Double.toString(Math.abs(this.c))+")");
+				}
+			}else if(this.c != 0 && this.b == 1){
+				if(this.c > 0){
+					return (Double.toString(this.a)+" cos (x + "+Double.toString(this.c)+")");
+				} else{
+					return (Double.toString(this.a)+" cos (x - "+Double.toString(Math.abs(this.c))+")");
+				}
+			} else {
+				return (Double.toString(this.a)+" cos (x)");
+			}
+		}else{
+			if(this.c != 0 && this.b != 1){
+				if(this.c > 0){
+					return ("cos ("+Double.toString(this.b)+"x + "+Double.toString(this.c)+")");
+				}else{
+					return ("cos ("+Double.toString(this.b)+"x - "+Double.toString(Math.abs(this.c))+")"); 
+				}
+			}else if(this.c != 0 && this.b == 1){
+				if(this.c > 0){
+					return ("cos (x + "+Double.toString(this.c)+")");
+				} else{
+					return ("cos (x - "+Double.toString(this.c)+")");
+				}
+			}else if(this.c==0 && this.b !=1){
+				return ("cos ("+Double.toString(this.b)+"x)");
+			} else {
+				return ("cos (x)");
+			}
+		}
 	}
 	
 	/**
@@ -67,6 +101,13 @@ public final class Cosine extends Function
 	@Override
 	public boolean equals (Object o)
 	{
-		return false;
+		if (!(o instanceof Cosine)){
+			return false;
+		}
+		Cosine test = (Cosine) o;
+		if(test.a != this.a || test.b != this.b || test.c != this.c){
+			return false;
+		}
+		return true;
 	}
 }
