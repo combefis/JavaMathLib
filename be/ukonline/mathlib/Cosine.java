@@ -53,42 +53,23 @@ public final class Cosine extends Function
 	@Override
 	public String toString()
 	{
+		String retVal="";
 		if(this.a != 1){
-			if(this.c != 0 && this.b != 1){
-				if(this.c > 0){
-					return (Double.toString(this.a)+" cos ("+Double.toString(this.b)+"x + "+Double.toString(this.c)+")");
-				}else{
-					return (Double.toString(this.a)+" cos ("+Double.toString(this.b)+"x - "+Double.toString(Math.abs(this.c))+")");
-				}
-			}else if(this.c != 0 && this.b == 1){
-				if(this.c > 0){
-					return (Double.toString(this.a)+" cos (x + "+Double.toString(this.c)+")");
-				} else{
-					return (Double.toString(this.a)+" cos (x - "+Double.toString(Math.abs(this.c))+")");
-				}
-			} else {
-				return (Double.toString(this.a)+" cos (x)");
-			}
-		}else{
-			if(this.c != 0 && this.b != 1){
-				if(this.c > 0){
-					return ("cos ("+Double.toString(this.b)+"x + "+Double.toString(this.c)+")");
-				}else{
-					return ("cos ("+Double.toString(this.b)+"x - "+Double.toString(Math.abs(this.c))+")"); 
-				}
-			}else if(this.c != 0 && this.b == 1){
-				if(this.c > 0){
-					return ("cos (x + "+Double.toString(this.c)+")");
-				} else{
-					return ("cos (x - "+Double.toString(this.c)+")");
-				}
-			}else if(this.c==0 && this.b !=1){
-				return ("cos ("+Double.toString(this.b)+"x)");
-			} else {
-				return ("cos (x)");
-			}
+			retVal += Double.toString(this.a)+" ";
 		}
+		retVal += "cos (";
+		if(this.b != 1){
+			retVal += Double.toString(this.b);
+		}
+		retVal += "x";
+		if(this.c != 0){
+			retVal += (this.c > 0 && this.c != 0 ? " +" : " -")+" ";
+			retVal += Double.toString(Math.abs(this.c));
+		}
+		retVal += ")";
+		return retVal;
 	}
+
 	
 	/**
 	 * Tests two cosine functions for equality
