@@ -1,22 +1,15 @@
-.. JavaMathLib documentation master file, created by
-   sphinx-quickstart on Thu Jul  7 12:15:04 2016.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+JavaMathLib: Program mathematics with Java
+==========================================
 
-Welcome to JavaMathLib's documentation!
-=======================================
+Introduction...
 
-Contents:
+
+
+Contents
+--------
 
 .. toctree::
-   :maxdepth: 2
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   :maxdepth: 1
+   
+   function
+   matrix
