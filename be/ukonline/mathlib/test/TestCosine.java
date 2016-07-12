@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import be.ukonline.mathlib.Cosine;
+import be.ukonline.mathlib.Sine;
 
 /**
  * Test class for the Cosine class
@@ -38,7 +39,7 @@ public final class TestCosine
 		// 5 cos (-2x - 4)
 		cosineD = new Cosine (5, -2, -4);
 		
-		// -cos(-x - 1)
+		// -cos (-x - 1)
 		cosineE = new Cosine (-1, -1, -1);
 	}
 
@@ -65,6 +66,25 @@ public final class TestCosine
 		
 		// cos (0) should be 1
 		assertEquals (Math.cos (0), cosineE.getValue (-1), 0);
+	}
+	
+	@Test
+	public void testDerive()
+	{
+		// (cos (x))' = -sin (x)
+		assertEquals (new Sine (-1, 1, 0), cosineA.derive());
+		
+		// (cos (-2x))' = 2 sin (-2x)
+		assertEquals (new Sine (2, -2, 0), cosineB.derive());
+		
+		// (-2.5 cos (3x + 5))' = 7.5 sin (3x + 5)
+		assertEquals (new Sine (7.5, 3, 5), cosineC.derive());
+		
+		// (5 cos (-2x - 4))' = 10 sin (-2x - 4)
+		assertEquals (new Sine (10, -2, -4), cosineD.derive());
+		
+		// (-cos (-x - 1))' = -sin (-x - 1)
+		assertEquals (new Sine (-1, -1, -1), cosineE.derive());
 	}
 	
 	@Test
