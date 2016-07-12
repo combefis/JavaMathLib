@@ -64,8 +64,8 @@ public final class TestCosine
 		// 5 cos (-8) should be 4.95134...
 		assertEquals (5 * Math.cos (-8), cosineD.getValue (2), 0);
 		
-		// cos (0) should be 1
-		assertEquals (Math.cos (0), cosineE.getValue (-1), 0);
+		// -cos (0) should be -1
+		assertEquals (-Math.cos (0), cosineE.getValue (-1), 0);
 	}
 	
 	@Test
