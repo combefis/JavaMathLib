@@ -21,7 +21,7 @@ import be.ukonline.mathlib.Cosine;
 public final class TestCosine
 {
 	// Instance variables
-	private Cosine cosineA, cosineB, cosineC, cosineD;
+	private Cosine cosineA, cosineB, cosineC, cosineD, cosineE;
 		
 	@Before
 	public void setUp() throws Exception
@@ -37,6 +37,9 @@ public final class TestCosine
 		
 		// 5 cos (-2x - 4)
 		cosineD = new Cosine (5, -2, -4);
+		
+		// -cos(-x - 1)
+		cosineE = new Cosine (-1, -1, -1);
 	}
 
 	@Test
@@ -59,6 +62,9 @@ public final class TestCosine
 		
 		// 5 cos (-8) should be 4.95134...
 		assertEquals (5 * Math.cos (-8), cosineD.getValue (2), 0);
+		
+		// cos (0) should be 1
+		assertEquals (Math.cos (0), cosineE.getValue (-1), 0);
 	}
 	
 	@Test
@@ -68,6 +74,7 @@ public final class TestCosine
 		assertEquals ("cos (-2.0x)", cosineB.toString());
 		assertEquals ("-2.5 cos (3.0x + 5.0)", cosineC.toString());
 		assertEquals ("5.0 cos (-2.0x - 4.0)", cosineD.toString());
+		assertEquals ("-cos (-x - 1)", cosineE.toString());
 	}
 	
 	@Test
@@ -93,6 +100,7 @@ public final class TestCosine
 		assertTrue (cosineB.equals (new Cosine (1, -2, 0)));
 		assertTrue (cosineC.equals (new Cosine (-2.5, 3, 5)));
 		assertTrue (cosineD.equals (new Cosine (5, -2, -4)));
+		assertTrue (cosineE.equals (new Cosine (-1, -1, -1)));
 		
 		// Testing equalities that must fail
 		// Must return false when comparing two different cosine functions
@@ -102,5 +110,6 @@ public final class TestCosine
 		assertFalse (cosineB.equals (new Cosine (-8, 2, 15)));
 		assertFalse (cosineC.equals (new Cosine (-2.5, 3, -5)));
 		assertFalse (cosineD.equals (new Cosine (-5, 2, 4)));
+		assertFalse (cosineE.equals (new Cosine (-1, -1, 4)));
 	}
 }
