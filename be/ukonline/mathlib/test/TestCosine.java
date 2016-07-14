@@ -52,16 +52,16 @@ public final class TestCosine
 		// cos (pi/2) should be 0
 		assertEquals (Math.cos (Math.PI / 2), cosineA.getValue (Math.PI /2), 0);
 		
-		// -2.5 cos (5) should be -2.49049...
+		// -2.5 cos (5) should be -0.7092
 		assertEquals (-2.5 * Math.cos (5), cosineC.getValue (0), 0);
 		
-		// -2.5 cos (2) should be 1.04037...
+		// -2.5 cos (2) should be 1.04
 		assertEquals (-2.5 * Math.cos (2), cosineC.getValue (-1), 0);
 		
-		// 5 cos (-4) should be -3.26821...
+		// 5 cos (-4) should be -3.268
 		assertEquals (5 * Math.cos (-4), cosineD.getValue (0), 0);
 		
-		// 5 cos (-8) should be 4.95134...
+		// 5 cos (-8) should be -0.7275
 		assertEquals (5 * Math.cos (-8), cosineD.getValue (2), 0);
 		
 		// -cos (0) should be -1
