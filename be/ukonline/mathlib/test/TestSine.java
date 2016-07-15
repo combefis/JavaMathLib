@@ -21,7 +21,7 @@ import be.ukonline.mathlib.Sine;
 public final class TestSine
 {
 	// Instance variables
-	private Sine sineA, sineB, sineC, sineD;
+	private Sine sineA, sineB, sineC, sineD, sineE;
 		
 	@Before
 	public void setUp() throws Exception
@@ -37,6 +37,9 @@ public final class TestSine
 		
 		// 5 sin (-2x - 4)
 		sineD = new Sine (5, -2, -4);
+		
+		// -sin(-x - 1)
+		sineE = new Sine (-1, -1, -1);
 	}
 
 	@Test
@@ -59,6 +62,9 @@ public final class TestSine
 		
 		// 5 sin (-8) should be -4.947
 		assertEquals (5 * Math.sin (-8), sineD.getValue (2), 0);
+		
+		// -sin(0) should be 0
+		assertEquals (-Math.sin (0), sineE.getValue (-1), 0);
 	}
 	
 	@Test
@@ -68,6 +74,7 @@ public final class TestSine
 		assertEquals ("sin (-2.0x)", sineB.toString());
 		assertEquals ("-2.5 sin (3.0x + 5.0)", sineC.toString());
 		assertEquals ("5.0 sin (-2.0x - 4.0)", sineD.toString());
+		assertEquals ("-sin (-x - 1)", sineE.toString());
 	}
 	
 	@Test
@@ -93,6 +100,7 @@ public final class TestSine
 		assertTrue (sineB.equals (new Sine (1, -2, 0)));
 		assertTrue (sineC.equals (new Sine (-2.5, 3, 5)));
 		assertTrue (sineD.equals (new Sine (5, -2, -4)));
+		assertTrue (sineE.equals (new Sine (-1, -1, -1)));
 		
 		// Testing equalities that must fail
 		// Must return false when comparing two different sine functions
@@ -102,5 +110,6 @@ public final class TestSine
 		assertFalse (sineB.equals (new Sine (-8, 2, 15)));
 		assertFalse (sineC.equals (new Sine (-2.5, 3, -5)));
 		assertFalse (sineD.equals (new Sine (-5, 2, 4)));
+		assertFalse (sineE.equals (new Sine (-1, -1, 4)));
 	}
 }
