@@ -10,6 +10,7 @@ import java.util.GregorianCalendar;
 import org.junit.Before;
 import org.junit.Test;
 
+import be.ukonline.mathlib.Cosine;
 import be.ukonline.mathlib.Sine;
 
 /**
@@ -65,6 +66,25 @@ public final class TestSine
 		
 		// -sin(0) should be 0
 		assertEquals (-Math.sin (0), sineE.getValue (-1), 0);
+	}
+	
+	@Test
+	public void testDerive()
+	{
+		// (sin (x))' = cos (x)
+		assertEquals (new Cosine (1, 1, 0), sineA.derive());
+		
+		// (sin (-2x))' = -2 cos (-2x)
+		assertEquals (new Cosine (-2, -2, 0), sineB.derive());
+		
+		// (-2.5 sin (3x + 5))' = -7.5 cos (3x + 5)
+		assertEquals (new Cosine (-7.5, 3, 5), sineC.derive());
+		
+		// (5 sin (-2x - 4))' = -10 cos (-2x - 4)
+		assertEquals (new Cosine (-10, -2, -4), sineD.derive());
+		
+		// (-sin (-x - 1))' = cos (-x - 1)
+		assertEquals (new Cosine (1, -1, -1), sineE.derive());
 	}
 	
 	@Test
